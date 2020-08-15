@@ -1,0 +1,23 @@
+{
+  "name": "identity-tokens",
+  "version": "1.0.0",
+  "description": "Identity token provisioning edgeworker",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c && cd dist/work && tar -czvf ../identity-tokens.tgz *"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "crypto-es": "^1.2.6",
+    "rollup": "^2.26.0",
+    "rollup-plugin-copy-assets": "^2.0.1",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "uuid": "^8.3.0"
+  },
+  "dependencies": {}
+}
