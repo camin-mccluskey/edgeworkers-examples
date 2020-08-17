@@ -18,14 +18,14 @@ export default {
   preserveModules: false,
 
   plugins: [
-    nodePolyfills(),
     // Resolve modules from node_modules
-    resolve({
-      preferBuiltins: false
-    }),
+    resolve(),
+    // convert commonJS modules
     commonjs({
       transformMixedEsModules: true
     }),
+    // polyfill standard library
+    nodePolyfills(),
     // Copy bundle.json to the output directory
     copy({
       assets: [

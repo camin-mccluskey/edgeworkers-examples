@@ -1,14 +1,19 @@
+import jwt from 'jsonwebtoken';
 import { v4 as uuid } from 'uuid';
 import ESCrypto from 'crypto-es';
 
 export function onClientResponse(request, response) {
+  // construct id
   const random = CryptJsWordArrayToUint8Array(ESCrypto.lib.WordArray.random(16));
-  console.log(random);
-  console.log(uuid({ random }));
-  // response.addHeader('uuid', uuid({random: rndBytes}));
-
+  const id = uuid({ random });
+  console.log(id);
+  
+  // construct jwt with claims
+  const token = jwt.sign({ id }, 'secret');
+  console.log(token);
 }
 
+// https://github.com/brix/crypto-js/issues/274
 /* Converts a cryptjs WordArray to native Uint8Array */                                                                                  
 function CryptJsWordArrayToUint8Array(wordArray) {                                                                                       
   const l = wordArray.sigBytes;                                                                                                        
